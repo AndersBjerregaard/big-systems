@@ -1,0 +1,16 @@
+spin_manifest_version = "1"
+authors = ["Anders Stræde Bjerregaard Nielsen <don-sbn@hotmail.com>"]
+description = ""
+name = "rust-spin-service"
+trigger = { type = "http", base = "/" }
+version = "0.1.0"
+
+[[component]]
+id = "rust-spin-service"
+source = "target/wasm32-wasi/release/rust_spin_service.wasm"
+allowed_http_hosts = []
+[component.trigger]
+route = "/..."
+[component.build]
+command = "cargo build --target wasm32-wasi --release"
+watch = ["src/**/*.rs", "Cargo.toml"]

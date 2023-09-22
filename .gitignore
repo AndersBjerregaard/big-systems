@@ -1,3 +1,5 @@
 exampleDotNetWebApi/.vscode/
 exampleDotNetWebApi/bin/
 exampleDotNetWebApi/obj/
+rust-spin-service/target/
+rust-spin-service/.spin/
