@@ -1,4 +1,6 @@
 
+using Serilog;
+
 namespace web_api;
 
 public class Program
@@ -6,6 +8,13 @@ public class Program
     public static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
+
+        Log.Logger = new LoggerConfiguration()
+            .MinimumLevel.Information()
+            .WriteTo.Http(requestUri: "http://logstash:8080", queueLimitBytes: null)
+            .CreateLogger();
+
+        builder.Host.UseSerilog();
 
         // Add services to the container.
 
