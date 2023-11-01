@@ -10,7 +10,7 @@ public class Program
         var builder = WebApplication.CreateBuilder(args);
 
         Log.Logger = new LoggerConfiguration()
-            .MinimumLevel.Information()
+            .MinimumLevel.Verbose()
             .WriteTo.Http(requestUri: "http://logstash:8080", queueLimitBytes: null)
             .CreateLogger();
 
